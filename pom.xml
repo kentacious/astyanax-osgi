@@ -1,0 +1,151 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <!-- ================== -->
+  <!-- Basic project info -->
+  <!-- ================== -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.netflix.astyanax</groupId>
+  <artifactId>astyanax.parent</artifactId>
+  <version>1.0.3</version>
+  <packaging>pom</packaging>
+  <name>Astyanax 1.0.3 OSGI Bundle builder - Parent POM</name>
+
+
+  <!-- ================================= -->
+  <!-- Properties unique to this project -->
+  <!-- ================================= -->
+  <properties>
+    <osgi.bundle.symbolic.name>${groupId}.${artifactId}</osgi.bundle.symbolic.name>
+    <parent.pom.version>1.0.3</parent.pom.version>
+    <osgi.bundle.version>1.0.3</osgi.bundle.version>
+  </properties>
+  
+
+  <!-- =============== -->
+  <!-- Project Modules -->
+  <!-- =============== -->
+  <modules>
+    <module>eaio-uuid-3.2.0</module>
+    <module>astyanax-1.0.3</module>
+    <module>avro-1.7.0</module>
+    <module>cassandra-all-for-real-1.1.1</module>
+    <module>commons-cli-1.1</module>
+    <module>commons-csv-1.0-r706900_3</module>
+    <module>compress-lzf-0.7.0</module>
+    <module>concurrentlinkedhashmap-lru-1.2</module>
+    <module>high-scale-lib-1.1.2</module>
+    <module>jamm-0.2.5</module>
+    <module>javax-inject-1.0</module>
+    <module>jettison-1.3.1</module>
+    <module>libthrift-0.7.0</module>
+    <module>log4j-1.2.16</module>
+    <module>metrics-core-2.0.3</module>
+    <module>paranamer-2.5</module>
+    <module>snappy-1.0.4.1</module>
+ </modules>
+
+  <!-- ==================== -->
+  <!-- Project dependencies -->
+  <!-- ==================== -->
+  <dependencies>
+  </dependencies>
+  
+  <build>
+    <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/</outputDirectory>
+                            <excludeTransitive>true</excludeTransitive>
+                            <excludes>META-INF/**/*</excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>initialize</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+           <plugin>
+                <groupId>com.springsource.bundlor</groupId>
+                <artifactId>com.springsource.bundlor.maven</artifactId>
+                <version>1.0.0.M5</version>
+                <configuration>
+                    <failOnWarnings>false</failOnWarnings>
+                    <removeNullHeaders>true</removeNullHeaders>
+                    <manifestTemplatePath>${basedir}/src/main/resources/META-INF/template.mf</manifestTemplatePath>
+                    <outputManifest>${project.build.outputDirectory}/META-INF/manifest.mf</outputManifest>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bundle-manifest</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+    </plugins>
+  </build>  
+
+  <!-- ======================== -->
+  <!-- Repository Configuration -->
+  <!-- ======================== -->
+  <repositories>
+        <repository>
+            <id>artifactory-releases</id>
+            <name>artifactory-releases</name>
+            <url>http://itstcb.com/artifactory/libs-release-local</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>artifactory-snapshots</id>
+            <name>artifactory-snapshots</name>
+            <url>http://itstcb.com/artifactory/libs-snapshot-local</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>com.springsource.repository.bundles.milestone</id>
+            <name>SpringSource Enterprise Bundle Repository - SpringSource Milestone Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/milestone</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>com.springsource.repository.bundles.release</id>
+            <name>SpringSource Enterprise Bundle Repository</name>
+            <url>http://repository.springsource.com/maven/bundles/release</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

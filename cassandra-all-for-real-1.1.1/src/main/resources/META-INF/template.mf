@@ -1,0 +1,21 @@
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ${osgi.bundle.symbolic.name}
+Bundle-Version: ${osgi.bundle.version}
+Bundle-Name: ${osgi.bundle.name}
+Import-Template:
+  edu.stanford.ppl.concurrent;version=0.0.0.0;resolution:=optional,
+  org.apache.hadoop;version=0.0.0.0;resolution:=optional,
+  org.apache.hadoop.conf;version=0.0.0.0;resolution:=optional,
+  org.apache.hadoop.fs;version=0.0.0.0;resolution:=optional,
+  org.apache.hadoop.io;version=0.0.0.0;resolution:=optional,
+  org.apache.hadoop.mapred;version=0.0.0.0;resolution:=optional,
+  org.apache.hadoop.mapreduce;version=0.0.0.0;resolution:=optional,
+  org.apache.hadoop.util;version=0.0.0.0;resolution:=optional,
+  org.apache.pig;version=0.0.0.0;resolution:=optional,
+  org.apache.pig.backend.executionengine;version=0.0.0.0;resolution:=optional,
+  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer;version=0.0.0.0;resolution:=optional,
+  org.apache.pig.data;version=0.0.0.0;resolution:=optional,
+  org.apache.pig.impl.util;version=0.0.0.0;resolution:=optional,
+  com.sun.jna;version=0.0.0.0;resolution:=optional
+
+

@@ -1,0 +1,22 @@
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ${osgi.bundle.symbolic.name}
+Bundle-Version: ${osgi.bundle.version}
+Bundle-Name: ${osgi.bundle.name}
+Import-Template:
+  javax.jms;version=0.0.0.0;resolution:=optional,
+  javax.mail;version=0.0.0.0;resolution:=optional,
+  javax.mail.internet;version=0.0.0.0;resolution:=optional,
+  javax.management;version=0.0.0.0;resolution:=optional,
+  javax.naming;version=0.0.0.0;resolution:=optional,
+  javax.swing;version=0.0.0.0;resolution:=optional,
+  javax.swing.border;version=0.0.0.0;resolution:=optional,
+  javax.swing.event;version=0.0.0.0;resolution:=optional,
+  javax.swing.table;version=0.0.0.0;resolution:=optional,
+  javax.swing.text;version=0.0.0.0;resolution:=optional,
+  javax.swing.tree;version=0.0.0.0;resolution:=optional,
+  javax.xml.parsers;version=0.0.0.0;resolution:=optional,
+  org.w3c.dom;version=0.0.0.0;resolution:=optional,
+  org.xml.sax;version=0.0.0.0;resolution:=optional,
+  org.xml.sax.helpers;version=0.0.0.0;resolution:=optional
+  
+  

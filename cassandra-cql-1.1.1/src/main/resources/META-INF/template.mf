@@ -1,0 +1,6 @@
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ${osgi.bundle.symbolic.name}
+Bundle-Version: ${osgi.bundle.version}
+Bundle-Name: ${osgi.bundle.name}
+Import-Template:
+  org.w3c.dom;version=0.0.0.0;resolution:=optional
