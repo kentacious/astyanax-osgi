@@ -1,0 +1,7 @@
+This post describes how to make the Astyanax api OSGI compatible. As of the date of this post (July 2012), the Astyanax version is 1.0.3 . Astyanax was developed and open sourced by Netflix and is used as a database client to access Cassandra DB. If you are familiar with the history of the Cassandra database, then you might know that one of the recent popular clients to access Cassandra was the 'Hector' api. Back in the day, before Hector there was only one way to access Cassandra. Apache Thrift. So Hector extends Thrift, and Asytanax extends Hector.
+As a side note:
+In greek mythology, Astyanax was the son of Hector. His birth name was Scamandrius but the people of Troy nicknamed him Astyanax, hence, it is a fitting name to the api. But the parallels of the story diverge from here as the Astyanax from Greece was thrown from the Greek walls and killed after the Trojan War. Lets hope this Astyanax (the api) is not thrown over the wall, but will live long and stand strong.
+
+Many thanks to Netflix for making Astyanax open source. If you guys ever want to make Astyanax OSGI compliant, you may find this post useful. 
+
+See http://elastic-computing.blogspot.com/2012/07/test-some-xml-here-test.html for a discussOSGI compatible Astyanax 1.0.3
